@@ -1,48 +1,77 @@
-public class Array
-{
+public class Array {
 
-	// Array should be of format
-	// 1 2 3
-	// 4 5 6
-	// 7 8 9
-	public int[][] getRowMajorSquare(int x)
-	{
-//	
-	}
+    // Returns a square matrix in row-major order
+    public int[][] getRowMajorSquare(int x) {
+        int[][] matrix = new int[x][x];
+        int value = 1;
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < x; j++) {
+                matrix[i][j] = value++;
+            }
+        }
+        return matrix;
+    }
 
-	// Array should be of format
-	// 1 4 7
-	// 2 5 8
-	// 3 6 9
-	public int[][] getColumnMajorSquare(int x)
-	{
-//		
-	}
+    // Returns a square matrix in column-major order
+    public int[][] getColumnMajorSquare(int x) {
+        int[][] matrix = new int[x][x];
+        int value = 1;
+        for (int j = 0; j < x; j++) {
+            for (int i = 0; i < x; i++) {
+                matrix[i][j] = value++;
+            }
+        }
+        return matrix;
+    }
 
-	// Array should be of format
-	// 1 2 3 4
-	// 5 6 7 8
-	// 9 10 11 12
-	public int[][] getRowMajorRectangle(int row, int column)
-	{
-		
-	}
+    // Returns a rectangular matrix in row-major order
+    public int[][] getRowMajorRectangle(int row, int column) {
+        int[][] matrix = new int[row][column];
+        int value = 1;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                matrix[i][j] = value++;
+            }
+        }
+        return matrix;
+    }
 
-	// Array should be of format
-	// 1 4 7 10
-	// 2 5 8 11
-	// 3 6 9 12
-	public int[][] getColumnMajorRectangle(int column, int row)
-	{
-	
-	}
+    // Returns a rectangular matrix in column-major order
+    public int[][] getColumnMajorRectangle(int column, int row) {
+        int[][] matrix = new int[row][column];
+        int value = 1;
+        for (int j = 0; j < column; j++) {
+            for (int i = 0; i < row; i++) {
+                matrix[i][j] = value++;
+            }
+        }
+        return matrix;
+    }
 
-	// Please note that each digit occupies two spaces and there is a space between
-	// them.
-	// You are not required to deal with three digit numbers.
-	public void printDouble(int[][] a)
-    {
-	
+    // Prints a matrix with two spaces per digit
+    public void printDouble(int[][] a) {
+        for (int[] row : a) {
+            for (int num : row) {
+                System.out.printf("%2d ", num);
+            }
+            System.out.println();
+        }
+    }
 
-	}
+    // Main method for testing
+    public static void main(String[] args) {
+        Array array = new Array();
+
+        System.out.println("Row-Major Square (3x3):");
+        array.printDouble(array.getRowMajorSquare(3));
+
+        System.out.println("\nColumn-Major Square (3x3):");
+        array.printDouble(array.getColumnMajorSquare(3));
+
+        System.out.println("\nRow-Major Rectangle (3x4):");
+        array.printDouble(array.getRowMajorRectangle(3, 4));
+
+        System.out.println("\nColumn-Major Rectangle (3x4):");
+        array.printDouble(array.getColumnMajorRectangle(4, 3));
+    }
 }
